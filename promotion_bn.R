@@ -2,11 +2,16 @@ library(bnlearn)
 library(Rgraphviz)
 source("prepare_data.R")
 
-data <- read_csv_file("movies.csv")
-str(data)
+create_global_bn_network <- function(){
+    data <- read_csv_file("movies.csv")
 
-hc_model <- hc(data)
-fitted_network <- bn.fit(hc_model, data = data)
-fitted_network
+    hc_model <- hc(data)
+    fitted_network <- bn.fit(hc_model, data = data)
+    
+    return(fitted_network)
+}
 
-graphviz.plot(fitted_network)
+#print(create_global_bn_network())
+
+#kreira grafički prikaz grafa
+#graphviz.plot(fitted_network)
