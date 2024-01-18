@@ -1,12 +1,13 @@
 import csv
 import random
 
-def read_csv(input_file, encoding='utf-8'):
+def read_csv(input_file, encoding='utf-8', countries=None):
     data = []
     with open(input_file, 'r', newline='', encoding=encoding) as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
-            data.append(row)
+            if countries is None or row['country'] in countries:
+                data.append(row)
     return data
 
 def write_csv(output_file, data, column_names):
@@ -20,7 +21,9 @@ def main():
     input_file = "movies.csv"
     output_file = input("Enter the output CSV file name: ")
 
-    data = read_csv(input_file)
+    countries_to_include = ['United States', 'United Kingdom', 'Australia']
+
+    data = read_csv(input_file, countries=countries_to_include)
     column_names = data[0].keys()
 
     x = int(input("Enter the number of random rows to select (x): "))

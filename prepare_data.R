@@ -4,6 +4,8 @@ read_csv_file <- function(file_path) {
     }
     dataframe <- read.csv(file_path)
 
+    dataframe <- na.omit(dataframe)
+
     movie_data <- dataframe[dataframe$country %in% c("United States", "United Kingdom", "Australia"), 
                             c("rating", "genre", "score", "country")]
     missing_scores <- is.na(movie_data$score)
@@ -13,15 +15,14 @@ read_csv_file <- function(file_path) {
                                             include.lowest = TRUE))
 
     movie_data <- movie_data[, -which(names(movie_data) == "score")]
-    
     movie_data$score_category[missing_scores] <- "missing"
-
-    movie_data$rating <- as.factor(movie_data$rating)
-    movie_data$genre <- as.factor(movie_data$genre)
+    movie_data$rating <- as.factor(movie_data$rating)   
+    movie_data$genre <- as.factor(movie_data$genre)   
     #movie_data$star <- as.factor(movie_data$star)
-    movie_data$country <- as.factor(movie_data$country)
+    movie_data$country <- as.factor(movie_data$country)  
     #movie_data$company <- as.factor(movie_data$company)
     movie_data$score_category <- as.factor(movie_data$score_category)
-
     return(movie_data)
 }
+
+
