@@ -31,6 +31,8 @@ medium_indices_global <- which(predictions_global == "medium")
 low_indices_global <- which(predictions_global == "low")
 
 highest_indices <- intersect(which(predictions_global == "high"), which(predictions_user == "high"))
+medium_indices <- intersect(which(predictions_global == "medium"), which(predictions_user == "medium"))
+lowest_indices <- intersect(which(predictions_global == "low"), which(predictions_user == "low"))
 
 if(length(highest_indices) != 0){
     for (i in highest_indices){
@@ -46,4 +48,29 @@ if(length(high_indices_global) != 0){
     for (i in high_indices_global){
         print(movie_data[i, ])
     }
-} 
+}
+if(length(medium_indices_user) != 0){
+    for (i in medium_indices_user){
+        print(movie_data[i, ])
+    }
+}
+if(length(medium_indices_global) != 0){
+    for (i in medium_indices_global){
+        print(movie_data[i, ])
+    }
+}
+if(length(low_indices_user) != 0){
+    for (i in low_indices_user){
+        print(movie_data[i, ])
+    }
+}
+if(length(low_indices_global) != 0){
+    for (i in low_indices_global){
+        print(movie_data[i, ])
+    }
+}
+if(length(lowest_indices) != 0){
+    for (i in lowest_indices_){
+        print(movie_data[i, ])
+    }
+}

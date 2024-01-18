@@ -18,9 +18,7 @@ read_csv_file <- function(file_path) {
     movie_data$score_category[missing_scores] <- "missing"
     movie_data$rating <- as.factor(movie_data$rating)   
     movie_data$genre <- as.factor(movie_data$genre)   
-    #movie_data$star <- as.factor(movie_data$star)
     movie_data$country <- as.factor(movie_data$country)  
-    #movie_data$company <- as.factor(movie_data$company)
     movie_data$score_category <- as.factor(movie_data$score_category)
     return(movie_data)
 }

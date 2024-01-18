@@ -11,6 +11,7 @@ create_global_bn_network <- function(){
     return(fitted_network)
 }
 
+#ispisuje podatke o mrezi
 #print(create_global_bn_network())
 
 #kreira grafički prikaz grafa
